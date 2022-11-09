@@ -4,18 +4,22 @@
     overflow: hidden;
     align-items: center;
     border-style: solid none solid none ;
-    border-color: rgb(234, 232, 232);
+    border-color: #33465f;
     border-width: 0.5px;
     margin: 0 20px;
+    transition-duration: 0.5s;
 }
 
+.single-grid-container:hover {
+    background-color: #182434;;
+}
 
 .single-div{
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 0.2fr));
     justify-items: start;
     align-items: center;
-   
+
 }
 
 .single-div2{
@@ -31,10 +35,42 @@
 }
 
 .single-h3{
-    font-weight: 400;
-    font-size: 0.9rem;
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: white;
 }
 
 .single-header{
-    font-weight: 600;
+    font-weight: 800;
+}
+
+/*<---------- TRENDING ---------->*/
+
+.trending-div{
+    display: grid;
+    grid-template-rows: 0.5fr 1fr 0.5fr;
+    text-align: center;
+}
+
+.trending-title{
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.trending-img{
+    width: 5rem;
+}
+
+.trending-rank{
+    margin: 0;
+}
+
+.trending-price{
+    margin: 0;
+}
+
+.trendingCoin-div{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 5rem;
 }
