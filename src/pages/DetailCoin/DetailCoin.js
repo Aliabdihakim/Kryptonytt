@@ -105,7 +105,7 @@ const DetailCoin = () => {
                         <div className='detail-price-div'>
                             <h2 className='detail-price-item'>${cryptoDetail.current_price}</h2>
                             <h3 className='detail-price-item' style={{color: cryptoDetail.market_cap_change_percentage_24>0 ? "blue" : "red"}}>
-                                {cryptoDetail.market_cap_change_percentage_24h}
+                                {cryptoDetail.market_cap_change_percentage_24h}%
                             </h3>
                         </div>
                     </div>
@@ -135,13 +135,13 @@ const DetailCoin = () => {
                             <p>{cryptoDetail.max_supply}</p>
                         </div>
                     </div>
-                    <div>
-                        <button onClick={()=>setDays(1)}>1 Day</button>
-                        <button onClick={()=>setDays(30)}>30 Days</button>
-                        <button onClick={()=>setDays(90)}>3 Months</button>
-                        <button onClick={()=>setDays(365)}>1 Year</button>
-                    </div>
                     <Line options={options} data={data}/>
+                    <div className='detail-button-div'>
+                        <button className='detail-graph-button' onClick={()=>setDays(1)}>1 Day</button>
+                        <button className='detail-graph-button' onClick={()=>setDays(30)}>30 Days</button>
+                        <button className='detail-graph-button' onClick={()=>setDays(90)}>3 Months</button>
+                        <button className='detail-graph-button' onClick={()=>setDays(365)}>1 Year</button>
+                    </div>
                 </div>
               )
         }

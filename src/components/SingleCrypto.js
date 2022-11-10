@@ -73,7 +73,7 @@ const SingleCrypto = () => {
             items={trendingCoin} />
         </div>
 
-        <div className='single-grid-container'>
+        <div className='single-grid-container' style={{borderStyle:"none"}}>
                 <h3 className='single-grid-item single-h3 single-header'>#</h3>
                 <div className='single-grid-item single-div'>
                     <img className='single-img'/>
