@@ -18,11 +18,12 @@ import {
 import { Line } from 'react-chartjs-2';
 import moment from 'moment/moment'
 
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
   PointElement,
-  LineElement,
+  LineElement, 
   Title,
   Tooltip,
   Filler,
@@ -87,7 +88,7 @@ const DetailCoin = () => {
     ]
    }
 
-   console.log();
+   
 
 
     if(cryptoData.length==0){
@@ -103,7 +104,7 @@ const DetailCoin = () => {
                             <h4 className='detail-name-item'>{`(${(cryptoDetail.symbol).toUpperCase()})`}</h4>
                         </div>
                         <div className='detail-price-div'>
-                            <h2 className='detail-price-item'>${cryptoDetail.current_price}</h2>
+                            <h2 className='detail-price-item'>{cryptoDetail.current_price}kr</h2>
                             <h3 className='detail-price-item' style={{color: cryptoDetail.market_cap_change_percentage_24>0 ? "blue" : "red"}}>
                                 {cryptoDetail.market_cap_change_percentage_24h}%
                             </h3>
@@ -112,36 +113,44 @@ const DetailCoin = () => {
                     <div className='detail-markets-container'>
                         <div className='detail-market-div'>
                             <p>Market Cap</p>
-                            <p>{cryptoDetail.market_cap}</p>
+                            <p>{Intl.NumberFormat('en-US').format(cryptoDetail.market_cap)} kr</p>
                         </div>
                         <div className='detail-market-div'>
                             <p>24 Hour Trading Vol</p>
-                            <p>{cryptoDetail.market_cap}</p>
+                            <p>{Intl.NumberFormat('en-US').format(cryptoDetail.market_cap)} kr</p>
                         </div>
                         <div className='detail-market-div'>
                             <p>Fully diluted valuation</p>
-                            <p>{cryptoDetail.fully_diluted_valuation}</p>
+                            <p>{Intl.NumberFormat('en-US').format(cryptoDetail.fully_diluted_valuation)} kr</p>
                         </div>
                         <div className='detail-market-div'>
                             <p>Circulating supply</p>
-                            <p>{cryptoDetail.circulating_supply}</p>
+                            <p>{Intl.NumberFormat('en-US').format(cryptoDetail.circulating_supply)}</p>
                         </div>
                         <div className='detail-market-div'>
                             <p>Total supply</p>
-                            <p>{cryptoDetail.total_supply}</p>
+                            <p>{Intl.NumberFormat('en-US').format(cryptoDetail.total_supply)}</p>
                         </div>
                         <div className='detail-market-div'>
                             <p>Max supply</p>
-                            <p>{cryptoDetail.max_supply}</p>
+                            <p>{Intl.NumberFormat('en-US').format(cryptoDetail.max_supply)}</p>
+                        </div>
+                    </div>
+                    <div className='detail-button-div'>
+                        <div>
+                            <button className='detail-graph-button' 
+                            style={{backgroundColor:"#33465f"}}>
+                                Price
+                            </button>
+                        </div>
+                        <div>
+                            <button className='detail-graph-button' onClick={()=>setDays(1)}>1 Day</button>
+                            <button className='detail-graph-button' onClick={()=>setDays(30)}>30 Days</button>
+                            <button className='detail-graph-button' onClick={()=>setDays(90)}>3 Months</button>
+                            <button className='detail-graph-button' onClick={()=>setDays(365)}>1 Year</button>
                         </div>
                     </div>
                     <Line options={options} data={data}/>
-                    <div className='detail-button-div'>
-                        <button className='detail-graph-button' onClick={()=>setDays(1)}>1 Day</button>
-                        <button className='detail-graph-button' onClick={()=>setDays(30)}>30 Days</button>
-                        <button className='detail-graph-button' onClick={()=>setDays(90)}>3 Months</button>
-                        <button className='detail-graph-button' onClick={()=>setDays(365)}>1 Year</button>
-                    </div>
                 </div>
               )
         }

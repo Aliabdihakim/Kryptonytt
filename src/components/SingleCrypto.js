@@ -62,6 +62,7 @@ const SingleCrypto = () => {
   return (
     <div>
         <div style={{backgroundColor:"#28242c", borderRadius:"30px"}}>
+            <h1 className='trending-header'>Trendiga valutor</h1>
             <AliceCarousel 
             mouseTracking 
             infinite

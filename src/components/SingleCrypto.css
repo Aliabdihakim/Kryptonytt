@@ -47,6 +47,13 @@
 
 /*<---------- TRENDING ---------->*/
 
+.trending-header{
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 30px;
+}
+
 .trending-div{
     display: grid;
     grid-template-rows: 0.5fr 1fr 0.5fr;
