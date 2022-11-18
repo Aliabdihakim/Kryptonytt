@@ -69,9 +69,8 @@ const App = () => {
             setNewsData(res.data.value)
           })
           .catch(err => console.log(err))
-  },[])
+  },[]) 
 
-  console.log(newsData);
 
   return (
     <div>

@@ -10,8 +10,10 @@ const Exchanges = () => {
     console.log(exchangesData);
 
     const testar = (exchangesData).map(item => {
+
+       console.log(item.country);
         return(
-            <div className='single-grid-container'>
+            <div key={item.id} className='single-grid-container'>
                 <h3 className='single-grid-item single-h3'>{exchangesData.indexOf(item)+1}</h3>
                 <div className='single-grid-item single-div'>
                     <img className='single-img' src={item.image}/>
@@ -19,13 +21,13 @@ const Exchanges = () => {
                 </div>
                 <div className='single-grid-item single-div2'>
                     <h3 className='single-grid-item single-h3'>{`${item.year_established}`}</h3>
-                    <h3 className='single-grid-item single-h3'>{`${item.country}`}</h3>
+                    <h3 className='single-grid-item single-h3'>{`${(item.country) }`}</h3>
                     <h3 className='single-grid-item single-h3'>{`${item.trade_volume_24h_btc}`}</h3>
                     <h3 className='single-grid-item single-h3'>{`${item.trust_score}`}</h3>
                 </div>
             </div>
         )
-    })
+    }) 
 
   return (
     <div>

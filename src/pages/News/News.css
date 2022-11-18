@@ -1,10 +1,11 @@
 .newsitem-div{
     background-color: #33465f;;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     padding: 0px 20px;
     box-shadow: 0 0 10px #33465f;
     border-radius: 8px;
+    height: 130px;
 }
 
 .newsitem-img{

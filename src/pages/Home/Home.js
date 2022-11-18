@@ -6,7 +6,7 @@ const Home = () => {
     <div>
       <SingleCrypto />
     </div>
-  )
+  ) 
 }
 
 export default Home

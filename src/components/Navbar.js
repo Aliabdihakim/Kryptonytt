@@ -11,7 +11,7 @@ const Navbar = () => {
     const prc = Math.round(globalData.market_cap_change_percentage_24h_usd * 10) / 10
     
     if(globalData.length==0){
-        return (<h1>hej</h1>)
+        console.log("");
     } else{
         return(
             <>
