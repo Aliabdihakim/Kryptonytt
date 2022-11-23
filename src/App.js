@@ -72,7 +72,7 @@ const App = () => {
   },[]) 
 
 
-  return (
+  return ( 
     <div>
       <cryptoContext.Provider value={{cryptoData, exchangesData, globalData, trending, newsData}}>
         <Navbar />
