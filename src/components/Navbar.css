@@ -1,9 +1,8 @@
 .navbar-div{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: center;
-    justify-content: space-between;
-    margin: 0 80px;
-
+    padding: 0 50px;
 }
 
 .navbar-header{
@@ -18,8 +17,14 @@
     margin: 0 30px;
 }
 
+.navbar-links-div{
+    justify-self: end;
+}
+
 .navbar-info{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    justify-items: center;
     align-items: center;
     font-size: 0.8rem;
     font-weight: 500;
@@ -28,10 +33,45 @@
     border-style: none none solid none;
     border-width: 0.1px;
     color: #33465f;
-
+    margin-top: 20px;
 }
 
 .navbar-info-data{
     color: #7b90f0;
     margin: 0 4rem 0 0;
+}
+
+.navbar-menu-icon{
+    display: none;
+}
+
+.navbar-menu-icon-div{
+    display: none;
+}
+
+@media only screen and (max-width: 800px){
+    .navbar-info{
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        justify-items: center;
+    }
+
+    .navbar-links-div{
+        display: none;
+    }
+
+    .navbar-menu-icon-div{
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .navbar-menu-icon{
+        background-color: white;
+        color: black;
+        display: block;
+        font-size: 1.6rem;
+        padding: 4px;
+        border-radius: 5px;
+    }
+
 }
