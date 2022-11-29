@@ -8,7 +8,7 @@
     align-items: center;
 }
 
-.detail-name-div{
+.detail-name-div{ 
     display: flex;
     align-items: center;
 }
@@ -64,4 +64,31 @@
 
 .detail-graph-button:hover{
     background-color: #33465f;
+}
+
+@media only screen and (max-width: 800px){
+    .detail-markets-container{
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        column-gap: 100px;
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+
+    .detail-button-div{
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        justify-items: center;
+    }
+
+    .detail-graph-button{
+        margin: 20px 5px;
+    }
+}
+
+@media only screen and (max-width: 650px){
+    .detail-graph-button-div{
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }

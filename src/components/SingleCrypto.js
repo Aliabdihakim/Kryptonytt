@@ -36,7 +36,6 @@ const SingleCrypto = () => {
     })
 
 
-
     const testar = cryptoData.map(item => {
         return(
             <Link key={item.id} style={{textDecoration:"none", color:"black"}} to={`/${item.id}`}>
@@ -85,7 +84,7 @@ const SingleCrypto = () => {
                         <div className='single-grid-item single-div2'>
                             <h3 className='single-grid-item single-h3 single-header'>Pris</h3>
                             <h3 className='single-grid-item single-h3 single-header'>24h%</h3>
-                            <h3 className='single-grid-item single-h3 single-header'>Totalvärde</h3>
+                            <h3 className='single-grid-item single-h3 single-header'>Marknadsvärde</h3>
                             <h3 className='single-grid-item single-h3 single-header'>Volym(24h)</h3>
                             <h3 className='single-grid-item single-h3 single-header' >Cirkulation</h3>
                         </div>

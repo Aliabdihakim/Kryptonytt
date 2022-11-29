@@ -29,7 +29,7 @@ const App = () => {
   const url_news = "https://bing-news-search1.p.rapidapi.com/news"
   const options = {
     method: 'GET',
-    url: 'https://bing-news-search1.p.rapidapi.com/news/search?q=crypto',
+    url: 'https://bing-news-search1.p.rapidapi.com/news/search?q=kryptovalutor',
     params: {safeSearch: 'Off', textFormat: 'Raw'},
     headers: {
       'X-BingApis-SDK': 'true',

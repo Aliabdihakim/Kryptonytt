@@ -8,7 +8,7 @@ import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  PointElement,
+  PointElement,  
   LineElement,
   Title,
   Tooltip,
@@ -38,12 +38,10 @@ const DetailCoin = () => {
     const {cryptoData} = useContext(cryptoContext)
     const test = useContext(cryptoContext)
     const params = useParams()
-    const url_history = `https://api.coingecko.com/api/v3/coins/${params.coinId}/market_chart?vs_currency=usd&days=${days}`
+    const url_history = `https://api.coingecko.com/api/v3/coins/${params.coinId}/market_chart?vs_currency=sek&days=${days}`
     const cryptoDetail = cryptoData.find(coin => coin.id==params.coinId)
 
     
-
-
     function getEveryNth(arr, nth) {
         const result = [];
         for (let i = 0; i < arr.length; i += nth) {
@@ -69,7 +67,7 @@ const DetailCoin = () => {
         })
     })
 
-    const coinChartDataX = days==1 ? coinChartData.map(value => moment(value.x).format('LT')) : getEveryNth(coinChartData.map(value => moment(value.x).format('MMM DD')),10)
+    const coinChartDataX = days==1 ? coinChartData.map(value => moment(value.x).format('L')) : getEveryNth(coinChartData.map(value => moment(value.x).format('MMM DD')),10)
     const coinChartDataY = coinChartData.map(val => val.y)
 
    const options = {
@@ -80,21 +78,29 @@ const DetailCoin = () => {
     labels: coinChartDataX,
     datasets: [
         {
+            label: 'Pris',
             fill: true,
             data: coinChartDataY,
             borderColor: 'rgb(53, 162, 235)',
             backgroundColor: 'rgba(53, 162, 235, 0.5)',
         }
-    ]
+    ],
+    options: {
+        plugins: {
+           legend: {
+              display: false
+           }
+        }
+      }
    }
-
-   
 
 
     if(cryptoData.length==0){
-        return (<h1>hej</h1>)
+        console.log("");
     }
         else{
+            console.log(cryptoData);
+            let maxSupply = cryptoDetail.max_supply==null ? <h1>-</h1> : cryptoDetail.max_supply; 
             return (
                 <div className='detailpage-div'>
                     <div className='detail-info-div'>
@@ -104,50 +110,51 @@ const DetailCoin = () => {
                             <h4 className='detail-name-item'>{`(${(cryptoDetail.symbol).toUpperCase()})`}</h4>
                         </div>
                         <div className='detail-price-div'>
-                            <h2 className='detail-price-item'>{cryptoDetail.current_price}kr</h2>
+                            <h2 className='detail-price-item'>{Intl.NumberFormat('en-US').format(cryptoDetail.current_price)}kr</h2>
                             <h3 className='detail-price-item' style={{color: cryptoDetail.market_cap_change_percentage_24>0 ? "blue" : "red"}}>
-                                {cryptoDetail.market_cap_change_percentage_24h}%
+                                {(cryptoDetail.market_cap_change_percentage_24h).toFixed(3)}%
                             </h3>
                         </div>
                     </div>
                     <div className='detail-markets-container'>
                         <div className='detail-market-div'>
-                            <p>Market Cap</p>
+                            <p>Marknadsvärde</p>
                             <p>{Intl.NumberFormat('en-US').format(cryptoDetail.market_cap)} kr</p>
                         </div>
                         <div className='detail-market-div'>
-                            <p>24 Hour Trading Vol</p>
-                            <p>{Intl.NumberFormat('en-US').format(cryptoDetail.market_cap)} kr</p>
+                            <p>24h högsta värde</p>
+                            <p>{Intl.NumberFormat('en-US').format(cryptoDetail.high_24h)} kr</p>
                         </div>
                         <div className='detail-market-div'>
-                            <p>Fully diluted valuation</p>
+                            <p>Helt utspätt marknadsvärde</p>
                             <p>{Intl.NumberFormat('en-US').format(cryptoDetail.fully_diluted_valuation)} kr</p>
                         </div>
                         <div className='detail-market-div'>
-                            <p>Circulating supply</p>
+                            <p>Cirkulation</p>
                             <p>{Intl.NumberFormat('en-US').format(cryptoDetail.circulating_supply)}</p>
                         </div>
                         <div className='detail-market-div'>
-                            <p>Total supply</p>
+                            <p>Omlopp</p>
                             <p>{Intl.NumberFormat('en-US').format(cryptoDetail.total_supply)}</p>
                         </div>
                         <div className='detail-market-div'>
-                            <p>Max supply</p>
-                            <p>{Intl.NumberFormat('en-US').format(cryptoDetail.max_supply)}</p>
+                            <p>Max omlopp</p>
+                            <p>{Intl.NumberFormat('en-US').format(maxSupply)}</p>
                         </div>
                     </div>
+
                     <div className='detail-button-div'>
                         <div>
                             <button className='detail-graph-button' 
                             style={{backgroundColor:"#33465f"}}>
-                                Price
+                                Pris
                             </button>
                         </div>
-                        <div>
-                            <button className='detail-graph-button' onClick={()=>setDays(1)}>1 Day</button>
-                            <button className='detail-graph-button' onClick={()=>setDays(30)}>30 Days</button>
-                            <button className='detail-graph-button' onClick={()=>setDays(90)}>3 Months</button>
-                            <button className='detail-graph-button' onClick={()=>setDays(365)}>1 Year</button>
+                        <div className='detail-graph-button-div'>
+                            <button className='detail-graph-button' onClick={()=>setDays(1)}>1 Dag</button>
+                            <button className='detail-graph-button' onClick={()=>setDays(30)}>30 Dagar</button>
+                            <button className='detail-graph-button' onClick={()=>setDays(90)}>3 Månader</button>
+                            <button className='detail-graph-button' onClick={()=>setDays(365)}>1 År</button>
                         </div>
                     </div>
                     <Line options={options} data={data}/>
