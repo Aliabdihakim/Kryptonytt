@@ -26,7 +26,7 @@ const SingleCrypto = () => {
         return(
             <div className='trending-div'>
                     <h4 className='trending-title'>{coin.item.id[0].toUpperCase() + (coin.item.id).substring(1)}</h4>
-                    <Link to={`/${coin.item.id}`}>
+                    <Link>
                         <img className='trending-img' src={coin.item.small}/>
                     </Link>
                     <p className='trending-rank'>Rank: {coin.item.market_cap_rank}</p>

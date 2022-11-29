@@ -74,7 +74,7 @@ const DetailCoin = () => {
     responsive: true
    }
 
-   const data = {
+   const data = { 
     labels: coinChartDataX,
     datasets: [
         {
@@ -157,7 +157,9 @@ const DetailCoin = () => {
                             <button className='detail-graph-button' onClick={()=>setDays(365)}>1 År</button>
                         </div>
                     </div>
-                    <Line options={options} data={data}/>
+                    <div className='detail-graph-container-div'>
+                        <Line className='line-style' options={options} data={data}/>
+                    </div>
                 </div>
               )
         }
