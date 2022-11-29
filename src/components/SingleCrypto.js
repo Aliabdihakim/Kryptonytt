@@ -17,7 +17,7 @@ const SingleCrypto = () => {
         0: {
           items: 2,
         },
-        512: {
+        800: {
           items: 4,
         },
       };
@@ -74,22 +74,24 @@ const SingleCrypto = () => {
             items={trendingCoin} />
         </div>
 
-        <div className='single-grid-container' style={{borderStyle:"none"}}>
-                <h3 className='single-grid-item single-h3 single-header'>#</h3>
-                <div className='single-grid-item single-div'>
-                    <img className='single-img'/>
-                    <h3 className='single-h3 single-header'>Namn</h3>
-                    <h3 className='single-h3' style={{fontWeight:"600"}}></h3>
-                </div>
-                <div className='single-grid-item single-div2'>
-                    <h3 className='single-grid-item single-h3 single-header'>Pris</h3>
-                    <h3 className='single-grid-item single-h3 single-header'>24h%</h3>
-                    <h3 className='single-grid-item single-h3 single-header'>Totalvärde</h3>
-                    <h3 className='single-grid-item single-h3 single-header'>Volym(24h)</h3>
-                    <h3 className='single-grid-item single-h3 single-header' >Cirkulation</h3>
-                </div>
-            </div>
-        {testar}
+        <div className='single-grid-container-scroll'>
+                <div className='single-grid-container' style={{borderStyle:"none"}}>
+                        <h3 className='single-grid-item single-h3 single-header'>#</h3>
+                        <div className='single-grid-item single-div'>
+                            <img className='single-img'/>
+                            <h3 className='single-h3 single-header'>Namn</h3>
+                            <h3 className='single-h3' style={{fontWeight:"600"}}></h3>
+                        </div>
+                        <div className='single-grid-item single-div2'>
+                            <h3 className='single-grid-item single-h3 single-header'>Pris</h3>
+                            <h3 className='single-grid-item single-h3 single-header'>24h%</h3>
+                            <h3 className='single-grid-item single-h3 single-header'>Totalvärde</h3>
+                            <h3 className='single-grid-item single-h3 single-header'>Volym(24h)</h3>
+                            <h3 className='single-grid-item single-h3 single-header' >Cirkulation</h3>
+                        </div>
+                    </div>
+                {testar}
+        </div>
     </div>
   )
 }

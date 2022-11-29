@@ -1,36 +1,47 @@
-.single-grid-container{
+.exchange-grid-container-scroll{
     display: grid;
-    grid-template-columns: 0.1fr repeat(2, 1fr);
-    overflow: hidden;
-    align-items: center;
+    overflow:scroll;
     border-style: solid none solid none ;
-    border-color: rgb(234, 232, 232);
-    border-width: 0.5px;
-    margin: 0 20px;
 }
 
+.exchange-grid-container{
+    display: grid;
+    /*grid-template-columns: 0.1fr repeat(2, 1fr);*/
+    grid-template-columns: 10% 60% 50%;
+    align-items: center;
+    border-style: none none solid none ;
+    border-color: #33465f;
+    border-width: 0.5px;
+    overflow: visible;
+    margin: 0 20px;
+    transition-duration: 0.5s;
+} 
 
-.single-div{
+.exchange-div{
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 0.2fr));
     justify-items: start;
     align-items: center;
-   
+    border-style: none none none none ;
+    border-color: #33465f;
+    border-width: 0.5px;
 }
 
-.single-div2{
+.exchange-div2{
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
     justify-items: end;
     gap: 170px;
+    border-style: none none solid none ;
+    border-color: #33465f;
+    border-width: 0.5px;
 }
 
-
-.single-img{
+.exchange-img{
     width: 2rem;
 }
 
-.single-h3{
+.exchange-h3{
     font-weight: 400;
     font-size: 0.9rem;
 }

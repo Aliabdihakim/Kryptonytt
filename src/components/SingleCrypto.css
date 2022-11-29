@@ -1,14 +1,22 @@
+.single-grid-container-scroll{
+    display: grid;
+    overflow:scroll;
+    border-style: solid none solid none ;
+}
+
 .single-grid-container{
     display: grid;
-    grid-template-columns: 0.1fr repeat(2, 1fr);
-    overflow: hidden;
+    /*grid-template-columns: 0.1fr repeat(2, 1fr);*/
+    grid-template-columns: 10% 60% 50%;
     align-items: center;
     border-style: solid none solid none ;
     border-color: #33465f;
     border-width: 0.5px;
+    overflow: visible;
     margin: 0 20px;
     transition-duration: 0.5s;
-}
+} 
+
 
 
 .single-grid-container:hover {
@@ -20,7 +28,9 @@
     grid-template-columns: repeat(3, minmax(0, 0.2fr));
     justify-items: start;
     align-items: center;
-
+    border-style: none none solid none ;
+    border-color: #33465f;
+    border-width: 0.5px;
 }
 
 .single-div2{
@@ -28,8 +38,10 @@
     grid-template-columns: repeat(5, minmax(0, 1fr));
     justify-items: end;
     gap: 170px;
+    border-style: none none solid none ;
+    border-color: #33465f;
+    border-width: 0.5px;
 }
-
 
 .single-img{
     width: 2rem;
@@ -57,7 +69,7 @@
 .trending-div{
     display: grid;
     grid-template-rows: 0.5fr 1fr 0.5fr;
-    text-align: center;
+    text-align: center; 
 }
 
 .trending-title{

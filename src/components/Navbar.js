@@ -3,11 +3,14 @@ import { Link } from 'react-router-dom'
 import "./Navbar.css"
 import { cryptoContext } from '../App'
 import { FaAngleUp,FaAngleDown, FaAlignJustify } from "react-icons/fa";
+import { useMediaQuery } from 'react-responsive'
+
 
 const Navbar = () => {
 
     const {globalData} = useContext(cryptoContext)
     const [navMenu, setNavMenu] = useState(false)
+    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 800px)' })
     
     const prc = Math.round(globalData.market_cap_change_percentage_24h_usd * 10) / 10
     
@@ -40,10 +43,10 @@ const Navbar = () => {
                         <FaAlignJustify className='navbar-menu-icon' onClick={()=>setNavMenu(prev => !prev)}/>
                     </div>
 
-                    {navMenu && <div className='navbar-phone-links'>
-                        <Link className='navbar-phone-link' to="/">Kryptovalutor</Link>
-                        <Link className='navbar-phone-link' to="/borser">Börser</Link>
-                        <Link className='navbar-phone-link' to="/nyheter">Nyheter</Link>
+                    {navMenu &&isTabletOrMobile && <div className='navbar-phone-links'>
+                        <Link className='navbar-phone-link' onClick={()=>setNavMenu(prev => !prev)}  to="/">Kryptovalutor</Link>
+                        <Link className='navbar-phone-link' onClick={()=>setNavMenu(prev => !prev)} to="/borser">Börser</Link>
+                        <Link className='navbar-phone-link' onClick={()=>setNavMenu(prev => !prev)}  to="/nyheter">Nyheter</Link>
                     </div>}
 
 

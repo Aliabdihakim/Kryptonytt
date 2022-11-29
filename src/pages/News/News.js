@@ -21,6 +21,10 @@ const News = () => {
     
         return (
             <div>
+                <div style={{textAlign:"center", padding:"20px"}}>
+                    <h1>Senaste kryptonyheter</h1>
+                    <p>Läs det senaste om krypto.</p>
+                </div>
                 <div className='news-container'>
                     {renderNews}
                 </div>
